@@ -3,12 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <title>MV-TAP: Tracking Any Point in Multi-View Videos</title>
-
-    <!-- Favicon references -->
-    <link rel="icon" type="image/png" href="./images/viral_robot.png">
-    <link rel="apple-touch-icon" href="./images/viral_robot.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
     <meta
         content="MV-TAP: Tracking Any Point in Multi-View Videos"
         name="description" />
@@ -77,7 +71,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li><a href="#abstract">Overview</a></li>
-                    <li><a href="#pilot-study">Pilot study</a></li>
+                    <li><a href="#motivation">Motivation</a></li>
                     <li><a href="#framework">Framework</a></li>
                     <li><a href="#visual-representation-alignment">Methods</a></li>
                     <li><a href="#ablation-studies">Ablation Studies</a></li>
@@ -92,79 +86,53 @@
         <div class="container">
             <div class="title-row">
                 <div class="title-flex">
-                    <video class="title-video" autoplay muted loop playsinline>
-                        <source src="images/robot_alpha.webm" type="video/webm">
-                        <source src="images/moving viral.mp4" type="video/mp4">
-                    </video>
                     <div class="title-text-block">
-                        <h1 class="title"><span class="gradient-text">VIRAL</span>: Visual Representation Alignment<span class="title-break"></span> for Multimodal Large Language Models</h1>
+                        <h1 class="title"><span class="gradient-text">MV-TAP</span>: Tracking Any Point in Multi-View Videos</h1>
                         <h1 class="subtitle">arXiv 2025</h1>
                     </div>
                 </div>
             </div>
             <div class="base-row author-row">
                 <div class="base-col author-col">
-                    <a href= "https://yoon-heez.github.io/" target ="_blank" class="author-text">
-                        Heeji Yoon<sup>1*</sup>
+                    <a href= "https://github.com/Jahyeok-Koo" target ="_blank" class="author-text">
+                        Jahyeok Koo<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://crepejung00.github.io/" target="_blank" class="author-text">
-                        Jaewoo Jung<sup>1*</sup>
+                    <a href="https://ines-hyeonsu-kim.github.io" target="_blank" class="author-text">
+                        Inès Hyeonsu Kim<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://junwankimm.github.io/" target="_blank" class="author-text">
-                        Junwan Kim<sup>2*</sup>
+                    <a href="https://github.com/mungyeom011" target="_blank" class="author-text">
+                        Mungyeom Kim<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://hyungyu-choi.github.io/" target="_blank" class="author-text">
-                        Hyungyu Choi<sup>3</sup>
-                    </a>
-                </div>
-            </div>
-            <div class="base-row author-row">
-                <div class="base-col author-col">
-                    <a href="https://hsshin98.github.io/" target="_blank" class="author-text">
-                        Heeseong Shin<sup>1</sup>
-                    </a>
-                </div>
-                <div class="base-col author-col">
-                    <a href="https://sites.google.com/view/sangbeomlim/home" target="_blank" class="author-text">
-                        Sangbeom Lim<sup>4</sup>
-                    </a>
-                </div>
-                <div class="base-col author-col">
-                    <a href="https://hg010303.github.io/" target="_blank" class="author-text">
-                        Honggyu An<sup>1</sup>
-                    </a>
-                </div>
-                <div class="base-col author-col">
-                    <a href="https://kchyun.github.io/" target="_blank" class="author-text">
-                        Chaehyun Kim<sup>1</sup>
-                    </a>
-                </div>
-                <div class="base-col author-col">
-                    <a href="https://onground-korea.github.io/" target="_blank" class="author-text">
-                        Jisang Han<sup>1</sup>
+                    <a href="https://junghyun-james-park.github.io/" target="_blank" class="author-text">
+                        Junghyun Park<sup>1</sup>
                     </a>
                 </div>
             </div>
             <div class="base-row author-row">
                 <div class="base-col author-col">
-                    <a href="https://utl.korea.ac.kr/" target="_blank" class="author-text">
-                        Donghyun Kim<sup>4</sup>
+                    <a href="https://eainx.github.io/" target="_blank" class="author-text">
+                        Seohyeon Park<sup>2</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://pailab.cau.ac.kr/" target="_blank" class="author-text">
-                        Chanho Eom<sup>3</sup>
+                    <a href="" target="_blank" class="author-text">
+                        Jaeyeong Kim<sup>3</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://sunghwanhong.github.io/" target="_blank" class="author-text">
-                        Sunghwan Hong<sup>5</sup>
+                    <a href="https://github.com/YJ-142150" target="_blank" class="author-text">
+                        Jung Yi<sup>1</sup>
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://seokju-cho.github.io" target="_blank" class="author-text">
+                        Seokju Cho<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
@@ -176,20 +144,23 @@
 
             <div class="base-row author-row">
                 <div class="base-col author-col affiliations">
-                    <sup>1</sup>KAIST AI &nbsp;&nbsp; <sup>2</sup>NYU &nbsp;&nbsp; <sup>3</sup>Chung-Ang University &nbsp;&nbsp; <sup>4</sup>Korea University &nbsp;&nbsp; <sup>5</sup>ETH Zurich 
+                    <sup>1</sup>KAIST AI &nbsp;&nbsp; <sup>2</sup>Korea University &nbsp;&nbsp; <sup>3</sup>Seoul National University 
                     <br>
-                    <sup>*</sup>Co-first authors
                 </div>
             </div>
             <div class="link-labels base-row">
-                <div class="base-col icon-col"><a href="https://arxiv.org/pdf/2509.07979" target="_blank"
+                <div class="base-col icon-col"><a href="" target="_blank"
                         class="link-block">
                         <i class="fa fas fa-file-text main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Paper</strong>
                     </a></div>
-                <div class="base-col icon-col"><a href='https://github.com/cvlab-kaist/VIRAL.git' class="link-block">
+                <div class="base-col icon-col"><a href='https://github.com/cvlab-kaist/MV-TAP' class="link-block">
                         <i class="fa fa-github main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Code</strong>
+                        <strong class="link-labels-text">Code (Coming Soon)</strong>
+                    </a></div>
+                <div class="base-col icon-col"><a href='' class="link-block">
+                        <i class="fa fa-database main-icon" style="font-size: 60px"></i>
+                        <strong class="link-labels-text">Data (Coming Soon)</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href="#citation" class="link-block">
                         <i class="fa fa-graduation-cap main-icon" style="font-size: 60px"></i>
@@ -203,24 +174,25 @@
     <main class="main-content">
         <div class="container">
             <div class="tldr">
-                <b>TL;DR</b>: VIRAL directly aligns MLLM's visual tokens with pretrained vision model features, preserving fine-grained visual details and boosting vision-centric reasoning beyond text-only supervision.
+                <b>TL;DR</b>: 
             </div>
 
             <div id="abstract" class="base-row section">
-                <h2>Introducing the VIsual Representation ALignment (VIRAL)</h2>
+                <h2>Introducing MV-TAP</h2>
                 <p class="paragraph">
-                    <Strong>VIsual Representation ALignment (VIRAL)</Strong> is a simple but effective regularization strategy that aligns the internal visual representations of MLLMs with those from pretrained vision foundation models (VFMs). By explicitly supervising intermediate visual tokens with rich VFM features, VIRAL preserves semantically meaningful visual information that would otherwise be discarded under text-only learning.
+                    <Strong>MV-TAP</Strong> (<Strong>T</Strong>racking <Strong>A</Strong>ny <Strong>P</Strong>oint in <Strong>M</Strong>ulti-view <Strong>V</Strong>ideos) is a robust point tracker that tracks points across multi-view videos of dynamic scenes by leveraging cross-view information. 
+                    MV-TAP utilizes camera geometry and a cross-view attention mechanism to aggregate spatio-temporal information across views, enabling more complete and reliable trajectory estimation in multi-view videos.
                 </p>
             </div>
 
             <div class="image-container">
                     <div class="image-content">
-                        <img src="images/teaser.png" class="img large-image" alt="VIRAL teaser">
+                        <img src="images/teaser.png" class="img large-image" alt="MV-TAP teaser">
                     </div>
 
                     <!-- <p class="image-caption">We propose <strong>VIsual Representation ALignment (VIRAL)</strong> for multi-modal large language models (MLLMs), which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substantial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.</p> -->
             </div>
-            <div>
+            <!-- <div>
                 <p>
                     <img class="paragraph-image" src="images/virabot_head.png" alt="VIRAL robot" />
                     VIRAL introduces an auxiliary regularization objective on the visual pathway to prevent MLLMs from discarding detailed attributes during training. 
@@ -229,12 +201,12 @@
                     <img class="paragraph-image" src="images/virabot_head.png" alt="VIRAL robot" />
                     VIRAL, when trained with DINOv2 as the vision foundation model (VFM), consistently produces more accurate visually grounded responses and achieves substantial improvements over standard baselines across diverse vision encoders, including CLIP and SigLIPv2!
                 </p>
-            </div>
+            </div> -->
 
             
 
-            <section id="pilot-study" class="section">
-                <h2>Pilot study</h2>
+            <section id="motivation" class="section">
+                <h2>Motivation</h2>
                 <div class="image-container">
                     <div class="image-content">
                         <img src="images/motivations_final.png" class="img large-image" alt="Comparisons diagram">
@@ -600,14 +572,16 @@
                 <h1 id="citation">Citation</h1>
                 <p> If you use this work or find it helpful, please consider citing: </p>
                 <pre id="codecell0">
-    @misc{yoon2025visualrepresentationalignmentmultimodal,
+
+    TBA
+    <!-- @misc{yoon2025visualrepresentationalignmentmultimodal,
       title={Visual Representation Alignment for Multimodal Large Language Models}, 
       author={Heeji Yoon and Jaewoo Jung and Junwan Kim and Hyungyu Choi and Heeseong Shin and Sangbeom Lim and Honggyu An and Chaehyun Kim and Jisang Han and Donghyun Kim and Chanho Eom and Sunghwan Hong and Seungryong Kim},
       year={2025},
       eprint={2509.07979},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2509.07979}}
+      url={https://arxiv.org/abs/2509.07979}} -->
                 </pre>
             </div>
         </div>
