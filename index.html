@@ -250,11 +250,11 @@
                 </div>
                 <p></p> -->
 
-                <h3>Can we compensate visual information with raw vision encoder feature?</h3>
-                <p>We first tested re-injecting raw vision encoder features into mid-layers via a residual branch, but this degraded performance as the features were not language-aligned and disrupted intermediate representations. 
-                To address this, we introduce a more principled strategy by explicitly aligning intermediate visual representations with frozen encoder features through a Visual Representation Alignment (VRA) loss.
+                <h3><del>Can we compensate visual information with raw vision encoder feature?</del></h3>
+                <p><del>We first tested re-injecting raw vision encoder features into mid-layers via a residual branch, but this degraded performance as the features were not language-aligned and disrupted intermediate representations. 
+                To address this, we introduce a more principled strategy by explicitly aligning intermediate visual representations with frozen encoder features through a Visual Representation Alignment (VRA) loss. </del></p>
                 
-                <p>This approach yields general improvements, though limitations remain: <strong> <i>encoder features can also transmit their inherent biases</i></strong>, as observed in MMVP.</p>
+                <p><del>This approach yields general improvements, though limitations remain: <strong> <i>encoder features can also transmit their inherent biases</i></strong>, as observed in MMVP.</del></p>
                 <!-- <div class="image-container">
                     <div class="image-content">
                         <img src="images/motivations_results.png" class="img large-image" alt="Results chart">
@@ -636,7 +636,7 @@
             <section id="conclusion" class="section">
                 <h2>Conclusion</h2>
 
-                <p>In this work, we propose VIRAL, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</p>
+                <p><del>In this work, we propose VIRAL, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</del></p>
             </section>
 
             <div class="citation add-top-padding">
