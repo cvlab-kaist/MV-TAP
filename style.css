@@ -2,7 +2,8 @@
   --primary-color: #000;
   --secondary-color: #333;
   /* --accent-color: #9375d2; */
-  --accent-color: #7155ae;
+  /* --accent-color: #7155ae; */
+  --accent-color: #FF9999;
   --accent-bg-color: #e3e4f3e1;
   /* --accent-color: #667eea; */
   --text-color: #2d3748;
@@ -601,7 +602,7 @@ pre {
 
 .slideshow {
     position: relative;
-    height: 500px;
+    height: 300px;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
@@ -744,7 +745,10 @@ pre {
 /* background: linear-gradient(45deg, #9578e4, #527f8c); */
 /* background: linear-gradient(45deg, #FF512F, #FF6F61, #DD2476); */
 .gradient-text {
-    background: linear-gradient(45deg, #5d2fbf, #06c29c);
+    /* background: linear-gradient(45deg, #5d2fbf, #06c29c); */
+    /* background: linear-gradient(45deg, #99CCFF, #FFCCCC); */
+    /* background: linear-gradient(45deg, #FF9999, #99FF99); */
+    background: linear-gradient(45deg, #FFB8A2, #D1A2FF);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -977,7 +981,6 @@ pre {
 .two-col .image-container {
   margin: 0;
   width: 100%;
-
 }
 
 @media (max-width: 900px) {
@@ -1008,6 +1011,53 @@ pre {
   padding: 0.75rem 0.75rem 0.9rem;
 }
 
+/* Three-column layout for general content */
+.three-col {
+  display: flex;
+  gap: 40px; /* Column spacing */
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+/* Define three equal-width columns */
+.three-col .col-1, 
+.three-col .col-2, 
+.three-col .col-3 {
+  flex: 1 1 0; /* Distribute space equally among the three columns */
+  min-width: 0; /* prevent content overflow */
+}
+
+/* You can optionally set different ratios if needed: */
+/* Example: First column wider (e.g., for navigation), others standard */
+/*
+.three-col .col-1 {
+  flex: 1.5 1 0;
+}
+.three-col .col-2, .three-col .col-3 {
+  flex: 1 1 0;
+}
+*/
+
+/* Ensure nested image container fits column */
+.three-col .image-container {
+  margin: 0;
+  width: 100%;
+}
+
+/* Responsive adjustment: Stack columns vertically on smaller screens (e.g., max-width 900px) */
+@media (max-width: 900px) {
+  .three-col {
+    flex-direction: column;
+    gap: 20px; /* Reduced vertical spacing when stacked */
+  }
+}
+
+/* Optional: Shrink image inside a column if needed */
+.three-col img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 
 .table-container-ablation {

@@ -72,8 +72,8 @@
                 <ul class="nav-links">
                     <li><a href="#abstract">Overview</a></li>
                     <li><a href="#motivation">Motivation</a></li>
-                    <li><a href="#framework">Framework</a></li>
-                    <li><a href="#visual-representation-alignment">Methods</a></li>
+                    <li><a href="#method">Method</a></li>
+                    <li><a href="#qual-compare">Qualitative Comparison</a></li>
                     <li><a href="#ablation-studies">Ablation Studies</a></li>
                     <li><a href="#analysis">Analysis</a></li>
                     <li><a href="#citation">Citation</a></li>
@@ -208,22 +208,50 @@
 
             <section id="motivation" class="section">
                 <h2>Motivation</h2>
+
+                <h3>Why should we consider using multi-view information when strong 2D point trackers already exist?</h3>
+                <p>Despite its strong capability, existing point tracking methods have only been explored in single-view videos. 
+                    Since the 2D projection of a 3D scene inherently incurs geometric ambiguities, such as frequent occlusion, erratic motion, and depth uncertainty, single-view point tracking methods struggle with these challenges.
+                    Consequently, a direct application of these trackers independently to each viewpoint fails to leverage the multi-view cues required to construct reliable point trajectories.
+                </p>
+
+                <h3>How is this different from existing multi-view tasks?</h3>
+                <p>Most existing multi-view methods are designed for static scenes, assume rigid geometry, or require geometric priors that are unavailable in casual, in-the-wild videos. 
+                    We address the critical gap of tracking points in pixel space through complex dynamic scenes, which is a prerequisite for many real-world applications.
+                </p>
+
+                <h3>What is the core goal of the model?</h3>
+                <p>Motivated by above, we introduce multi-view point tracking in 2D camera space.
+                    Our goal is to leverage multi-view information to enhance tracking performance while maintaining the strong spatio-temporal consistency established by 2D trackers.
+                </p>
+
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/motivations_final.png" class="img large-image" alt="Comparisons diagram">
+                        <img src="images/comparison.png" class="img large-image" alt="Comparisons diagram">
                     </div>
-                    <p class="image-caption"> (a) baseline visual instruction tuning, (b) re-injecting visual features from the <i>post</i>-projection layer, (c) re-injecting from the <i>pre</i>-projection layer, and (d) the proposed visual representation alignment. </p>
-                    <p class="image-caption">(e) Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions highlighting middle layers that are especially important for visual understanding. (f) Benchmark performance corresponding to (a–d) </p>
+                    <!-- <p class="image-caption"> (a) baseline visual instruction tuning, (b) re-injecting visual features from the <i>post</i>-projection layer, (c) re-injecting from the <i>pre</i>-projection layer, and (d) the proposed visual representation alignment. </p>
+                    <p class="image-caption">(e) Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions highlighting middle layers that are especially important for visual understanding. (f) Benchmark performance corresponding to (a–d) </p> -->
                 </div>
 
-                <h3>Do MLLMs undergo visual information loss?</h3>
-                <p>MLLMs are trained with text-only supervision, causing their visual features to drift from the encoder’s rich representations.
-                    We measure this with CKNNA and observe a sharp drop in similarity to CLIP features across layers.</p>
-                <h3>Is preserving visual information beneficial?</h3>
-                <p>Motivated by the observation that internal visual representations of MLLMs diverge from the encoder’s original features, we ask whether re-injecting them could help. We add a residual connection that feeds the input visual features of the language model back into its mid-layers. This preserves alignment with the encoder and yields consistent performance gains on multimodal benchmarks.</p>
+                <!-- <div class="two-col">
+                    <div class="col-left">
+                        <p>Most existing multi-view methods are designed for static scenes, assume rigid geometry, or require geometric priors that are unavailable in casual, in-the-wild videos. 
+                            We address the critical gap of tracking points in pixel space through complex dynamic scenes, which is a prerequisite for many real-world applications.
+                        </p>
+                    </div>
+                    <div class="col-right img">
+                        <div class="image-container">
+                            <img src="images/comparison.png" class="image-item img large-image z-depth-1" alt="Conceptual comparison">
+                        </div>
+                    </div>
+                </div>
+                <p></p> -->
+
                 <h3>Can we compensate visual information with raw vision encoder feature?</h3>
                 <p>We first tested re-injecting raw vision encoder features into mid-layers via a residual branch, but this degraded performance as the features were not language-aligned and disrupted intermediate representations. 
-                To address this, we introduce a more principled strategy by explicitly aligning intermediate visual representations with frozen encoder features through a Visual Representation Alignment (VRA) loss. <p>This approach yields general improvements, though limitations remain: <strong> <i>encoder features can also transmit their inherent biases</i></strong>, as observed in MMVP.</p>
+                To address this, we introduce a more principled strategy by explicitly aligning intermediate visual representations with frozen encoder features through a Visual Representation Alignment (VRA) loss.
+                
+                <p>This approach yields general improvements, though limitations remain: <strong> <i>encoder features can also transmit their inherent biases</i></strong>, as observed in MMVP.</p>
                 <!-- <div class="image-container">
                     <div class="image-content">
                         <img src="images/motivations_results.png" class="img large-image" alt="Results chart">
@@ -232,31 +260,70 @@
                 </div> -->
             </section>
 
-            <section id="framework" class="section">
-                <h2>VIRAL</h2>
-                <div class="two-col">
-                    <div class="col-left">
-                        <!-- <p>
-                        We freeze a pretrained Vision Foundation Model (VFM) $\mathcal{E}(\cdot)$ and treat its intermediate representation as a stable target $\mathbf{y} = \mathcal{E}(I)$. For each image $I$, the MLLM produces intermediate visual tokens $\mathbf{e}^\mathrm{img}_{\ell}$; a projection MLP $P_{\pi}(\cdot)$ maps them into the VFM feature space. 
-                        </p>
-                        <p>
-                            We minimize a cosine-similarity based alignment loss $\mathcal{L}_{\mathrm{VRA}} = -\tfrac{1}{N}\sum_{i=1}^{N} \operatorname{sim}(\mathbf{y}_i, P_{\pi}(\mathbf{e}^{\mathrm{img}}_{i,\ell}))$, encouraging retention of fine-grained semantics that would otherwise collapse under pure instruction tuning. The overall objective combines texture generation loss $\mathcal{L}_{\mathrm{LM}}$ with the proposed VRA loss $\mathcal{L}_{\mathrm{VRA}}$, improving spatial reasoning and grounding without degrading language modeling quality.
-                        </p> -->
-                        <p>
-                        <h3>What should serve as the alignment target?</h3>
-                        </p>
-                        <p>
-                        While aligning multimodal models with their own encoder features preserves some visual cues, it is fundamentally constrained by the encoder’s representational capacity. To overcome this limitation, we leverage stronger vision foundation models (VFMs) as teachers, providing richer, vision-centric targets.
-                        </p>
-                        <p>
-                        Building on this insight, we introduce <strong><i>VIRAL</i></strong>, which aligns intermediate MLLM representations to features from pretrained VFMs, thereby preserving more informative visual semantics than those available from the input encoder alone.
-                        </p>
+            <section id="method" class="section">
+                <h2>Method</h2>
+                <div class="image-container">
+                    <div class="image-content">
+                        <img src="images/arch.png" class="img large-image" alt="Architecture">
                     </div>
-                    <div class="col-right img">
-                        <div class="image-container">
-                            <img src="images/viral_architecture_hd.png" class="image-item img large-image z-depth-1" alt="VIRAL framework illustration">
-                            <p class="image-caption">Building upon our findings in visual representation alignment, we align visual pathway representation from MLLMs to strong, informative representations from VFMs to improve the vision understanding performance of MLLMs. </p>
+                    <p class="image-caption"> <strong>❗️WILL BE CONVERTED INTO VIDEO❗️</strong> </p>
+                </div>
+            </section>
+
+            <section id="qual-compare" class="section">
+                <h2>Qualitative Comparison</h2>
+
+                <p></p>
+
+                <h3>Comparison on DexYCB dataset</h3>                
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="slide">
+                            <video src="videos/971.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
                         </div>
+
+                        <div class="slide">
+                            <video src="videos/507.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
+                        </div>
+
+                        <div class="slide">
+                            <video src="videos/205.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <h3>Comparison on Panoptic Studio dataset</h3>                
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="slide">
+                            <video src="videos/softball0_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
+                        </div>
+
+                        <div class="slide">
+                            <video src="videos/tennis2_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
+                        </div>
+
+                        <div class="slide">
+                            <video src="videos/tennis5_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
                     </div>
                 </div>
             </section>
