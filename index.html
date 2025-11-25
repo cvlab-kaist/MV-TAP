@@ -73,7 +73,7 @@
                     <li><a href="#abstract">Overview</a></li>
                     <li><a href="#motivation">Motivation</a></li>
                     <li><a href="#method">Method</a></li>
-                    <li><a href="#qual-compare">Qualitative Comparison</a></li>
+                    <li><a href="#qual-results">Qualitative Results</a></li>
                     <li><a href="#ablation-studies">Ablation Studies</a></li>
                     <li><a href="#analysis">Analysis</a></li>
                     <li><a href="#citation">Citation</a></li>
@@ -156,7 +156,7 @@
                     </a></div>
                 <div class="base-col icon-col"><a href='https://github.com/cvlab-kaist/MV-TAP' class="link-block">
                         <i class="fa fa-github main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Code (Coming Soon)</strong>
+                        <strong class="link-labels-text">Code</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href='' class="link-block">
                         <i class="fa fa-database main-icon" style="font-size: 60px"></i>
@@ -269,28 +269,104 @@
                     <div class="image-content">
                         <img src="images/arch.png" class="img large-image" alt="Architecture">
                     </div>
-                    <p class="image-caption"> <strong>❗️WILL BE CONVERTED INTO VIDEO (MAYBE NOT)❗️</strong> </p>
+                    <!-- <p class="image-caption"> <strong>❗️WILL BE CONVERTED INTO VIDEO (MAYBE NOT)❗️</strong> </p> -->
                 </div>
+                <p>
+                    Our approach integrates a strong 2D tracking backbone with additional modules designed to leverage multi-view information. 
+                    Specifically, we introduce a camera encoding module to inject geometric information and a cross view-attention module to aggregate complementary cues across viewpoints. This combination allows our model to achieve robust spatio-temporal consistency across multiple views.
+                </p>
             </section>
 
-            <section id="qual-compare" class="section">
-                <h2>Qualitative Comparison</h2>
+            <section id="qual-results" class="section">
+                <h2>Qualitative Results</h2>
 
                 <p></p>
 
-                <h3>on DexYCB dataset</h3>                
+                <div class="three-col">
+                    <div class="col-1">
+                        <h3>on DexYCB dataset</h3>
+                        <div class="slideshow-container slideshow">
+                            <div class="slideshow">
+                                <div class="slide">
+                                    <video src="videos/dexycb-010.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from DexYCB (1)"></video>
+                                </div>
+
+                                <div class="slide">
+                                    <video src="videos/dexycb-430.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from DexYCB (2)"></video>
+                                </div>
+                            </div>
+
+                            <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                            <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                            
+                            <div class="slideshow-controls">
+                                <button class="play-pause" onclick="togglePlayPause()">
+                                    <i class="fa fa-pause"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <h3>on Panoptic Studio dataset</h3>
+                        <div class="slideshow-container slideshow">
+                            <div class="slideshow">
+                                <div class="slide">
+                                    <video src="videos/panoptic-juggle0.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from Panoptic Studio (1)"></video>
+                                </div>
+
+                                <div class="slide">
+                                    <video src="videos/panoptic-basketball0.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from Harmony4D (1)"></video>
+                                </div>
+                            </div>
+
+                            <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                            <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                            
+                            <div class="slideshow-controls">
+                                <button class="play-pause" onclick="togglePlayPause()">
+                                    <i class="fa fa-pause"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <h3>on Harmony4D dataset</h3>
+                        <div class="slideshow-container slideshow">
+                            <div class="slideshow">
+                                <div class="slide">
+                                    <video src="videos/harmony4d-001_mma3-7.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from Harmony4D (2)"></video>
+                                </div>
+
+                                <div class="slide">
+                                    <video src="videos/harmony4d-010_sword-7.mp4" class="slideshow-image-video" autoplay muted loop alt="Qualitative video from Harmony4D (2)"></video>
+                                </div>
+                            </div>
+
+                            <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                            <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                            
+                            <div class="slideshow-controls">
+                                <button class="play-pause" onclick="togglePlayPause()">
+                                    <i class="fa fa-pause"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Comparison on DexYCB dataset</h3>                
                 <div class="slideshow-container">
                     <div class="slideshow">
                         <div class="slide">
-                            <video src="videos/971.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
+                            <video src="videos/com-dexycb-971.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
                         </div>
 
                         <div class="slide">
-                            <video src="videos/507.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
+                            <video src="videos/com-dexycb-507.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
                         </div>
 
                         <div class="slide">
-                            <video src="videos/205.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
+                            <video src="videos/com-dexycb-205.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
                         </div>
                     </div>
 
@@ -304,19 +380,19 @@
                     </div>
                 </div>
 
-                <h3>on Panoptic Studio dataset</h3>                
+                <h3>Comparison on Panoptic Studio dataset</h3>                
                 <div class="slideshow-container">
                     <div class="slideshow">
                         <div class="slide">
-                            <video src="videos/softball0_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
+                            <video src="videos/com-panoptic-softball0_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from Panoptic Studio (1)"></video>
                         </div>
 
                         <div class="slide">
-                            <video src="videos/tennis2_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
+                            <video src="videos/com-panoptic-tennis2_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from Panoptic Studio (2)"></video>
                         </div>
 
                         <div class="slide">
-                            <video src="videos/tennis5_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
+                            <video src="videos/com-panoptic-tennis5_extended.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from Panoptic Studio (3)"></video>
                         </div>
                     </div>
 
@@ -636,7 +712,7 @@
             <section id="conclusion" class="section">
                 <h2>Conclusion</h2>
 
-                <p><del>In this work, we propose VIRAL, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</del></p>
+                <p>This work establishes multi-view 2D point tracking as a new and important task for advancing reliable spatio-temporal correspondence in dynamic, real-world scenes. By introducing \ours, a model that aggregates cross-view information through camera embedding and view-attention, we demonstrate how leveraging multi-view inputs can overcome key limitations of monocular trackers such as occlusion and motion ambiguity. Together with a large-scale synthetic dataset and a real-world evaluation dataset specifically designed for this task, our contributions provide both a principled formulation of the problem and a strong baseline method, paving the way for future research in robust multi-view point tracking.</p>
             </section>
 
             <div class="citation add-top-padding">
