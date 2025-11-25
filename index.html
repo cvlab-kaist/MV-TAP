@@ -357,6 +357,48 @@
                     </div>
                 </div>
 
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="video-slide active-slide">
+                            <div class="slide-video-wrapper">
+                                <div class="video-item-container"><h4 class="video-title">CLIP</h4>
+                                <video class="slideshow-video" src="videos/004.mp4" autoplay loop muted playsinline></video></div>
+                                <div class="video-item-container"><h4 class="video-title">VC-1</h4>
+                                <video class="slideshow-video" src="videos/005.mp4" autoplay loop muted playsinline></video></div>
+                                <div class="video-item-container"><h4 class="video-title">Ours</h4>
+                                <video class="slideshow-video" src="videos/006.mp4" autoplay loop muted playsinline></video></div>
+                            </div>
+                            <p class="slide-description">Relocate (Adroit)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Comparison on DexYCB dataset</h3>                
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="slide">
+                            <video src="videos/com-dexycb-971.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (1)"></video>
+                        </div>
+
+                        <div class="slide">
+                            <video src="videos/com-dexycb-507.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (2)"></video>
+                        </div>
+
+                        <div class="slide">
+                            <video src="videos/com-dexycb-205.mp4" class="slideshow-image-video" autoplay muted loop alt="Comparison video from DexYCB (3)"></video>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <h3>Comparison on DexYCB dataset</h3>                
                 <div class="slideshow-container">
                     <div class="slideshow">
@@ -1106,7 +1148,7 @@
             </section>
 
             
-            <section id="analysis" class="section">
+            <!-- <section id="analysis" class="section">
                 <h2>Analysis</h2>
 
                 <p></p>
@@ -1146,7 +1188,7 @@
                         </button>
                     </div>
                 </div>
-            </section>
+            </section> -->
             
 
             <section id="conclusion" class="section">
