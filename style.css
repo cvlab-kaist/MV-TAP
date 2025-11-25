@@ -252,6 +252,12 @@ p {
   margin: 1rem auto 2rem auto;
 }
 
+.small-image {
+  max-width: 50%;
+  display: block;
+  margin: 1rem auto 2rem auto;
+}
+
 .z-depth-1 {
   /* Remove shadow from images as it's now on the container */
   box-shadow: none;
@@ -803,16 +809,6 @@ pre {
   font-weight: 500;
 }
 
-/* Vertical divider after VRA Loss column */
-.advantages-table .vra-col {
-  width: 70px; /* adjust narrower width */
-  max-width: 70px;
-  text-align: center;
-  white-space: normal;
-  word-break: keep-all;
-  border-right: 2px solid var(--border-color);
-}
-
 /* Narrow left model column */
 .advantages-table .model-col {
   width: 150px; /* adjust narrower width */
@@ -822,15 +818,35 @@ pre {
   word-break: keep-all;
 }
 
-/* Simple VRA on/off icon colors */
-.advantages-table .vra-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
-.advantages-table .vra-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
+/* Vertical divider after depth column */
+.advantages-table .depth-col {
+  width: 70px; /* adjust narrower width */
+  max-width: 70px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Vertical divider after dataset column */
+.advantages-table .dataset-col {
+  width: 70px; /* adjust narrower width */
+  max-width: 70px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Simple depth on/off icon colors */
+.advantages-table .depth-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
+.advantages-table .depth-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
 
 @media (max-width: 768px) {
   .advantages-table .model-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
 }
 
-/* Remove double border on last vra cell if table ends */
+/* Remove double border on last depth cell if table ends */
 
 .advantages-table th {
     background-color: var(--light-bg);
@@ -1087,7 +1103,7 @@ pre {
 
 
 
-.advantages-table-abl .vra-col {
+.advantages-table-abl .depth-col {
   width: 70px; /* adjust narrower width */
   max-width: 70px;
   text-align: center;
@@ -1105,15 +1121,15 @@ pre {
   word-break: keep-all;
 }
 
-/* Simple VRA on/off icon colors */
-.advantages-table-abl .vra-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
-.advantages-table-abl .vra-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
+/* Simple depth on/off icon colors */
+.advantages-table-abl .depth-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
+.advantages-table-abl .depth-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
 
 @media (max-width: 768px) {
   .advantages-table-abl .model-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
 }
 
-/* Remove double border on last vra cell if table ends */
+/* Remove double border on last depth cell if table ends */
 
 .advantages-table th {
     /* background-color: var(--light-bg); */
