@@ -537,6 +537,77 @@ pre {
   padding: 15px;
 }
 
+/*********************************************************************************************/
+/* This new class creates the 3-column layout for videos inside a slide */
+/* Main wrapper for the 3-column slide layout */
+.slide-video-wrapper {
+  display: flex;
+  gap: 10px; /* Adjust the space between video items */
+  width: 100%;
+}
+
+/* New container for each title, video, and caption unit */
+.video-item-container {
+  flex: 1; /* This makes each container share space equally */
+  display: flex;
+  flex-direction: column; /* Stacks the title, video, and caption vertically */
+  text-align: center; /* Centers the title and caption text */
+}
+
+/* Style for the video title */
+.video-title {
+  margin-top: -18px;
+  margin-bottom: 5px; /* Space between title and video */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* The video element now just fills its container */
+.slideshow-video {
+  width: 100%;
+  display: block;
+}
+
+/* Style for the video caption */
+.video-caption {
+  margin-top: 8px; /* Space between video and caption */
+  font-size: 0.9rem;
+  color: #666; /* A slightly muted color for the caption */
+}
+
+/* New style for the text below the video group */
+.slide-description {
+  width: 100%; /* Ensures the text container spans the full width */
+  text-align: center; /* Horizontally centers the text */
+  margin-top: 10px; /* Adds space between the videos and this text */
+  margin-bottom: 0; /* Add this line to remove the bottom margin */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+  font-size: 1.2rem;
+  color: #333; /* Adjust color as needed */
+}
+
+.video-slide {
+  display: none; /* Hide all slides by default */
+  opacity: 0;
+  padding-bottom: 0;
+  transition: opacity 0.5s ease-in-out; /* Add a fade transition */
+}
+
+.video-slide.active-slide {
+  display: block; /* Show only the active slide */
+  opacity: 1;
+}
+
+/* Modify the existing class for the videos */
+.slideshow-video {
+  flex: 1; /* Allows each video to grow and shrink equally */
+  min-width: 0; /* Prevents overflow issues in flex containers */
+  width: 100%;
+  transition: var(--transition);
+  display: block;
+}
+/*********************************************************************************************/
+
 .slideshow-video {
   width: 100%;
   display: block;
@@ -1074,6 +1145,30 @@ pre {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* --- Three-column layout with reduced vertical margin when containing video --- */
+
+/* 1. New wrapper class to reduce the overall top margin of the three-col block itself */
+.three-col-tight-video {
+  margin-top: 0.5rem;
+}
+
+/* 2. Target the video container *inside* this specific three-col layout to reduce its margin */
+.three-col-tight-video .video-container {
+  margin: 0.5rem 0;
+}
+
+/* 3. Target the image container *inside* this specific three-col layout for consistency, if needed */
+.three-col-tight-video .image-container {
+  margin: 0.5rem 0;
+}
+
+/* 4. Responsive adjustment for the tight layout */
+@media (max-width: 900px) {
+  .three-col-tight-video {
+    gap: 15px;
+  }
 }
 
 
