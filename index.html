@@ -153,7 +153,7 @@
                 <div class="base-col icon-col"><a href="" target="_blank"
                         class="link-block">
                         <i class="fa fas fa-file-text main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Pape (Coming Soon)r</strong>
+                        <strong class="link-labels-text">Pape (Coming Soon)</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href="https://github.com/cvlab-kaist/MV-TAP" class="link-block">
                         <i class="fa fa-github main-icon" style="font-size: 60px"></i>
@@ -414,7 +414,7 @@
             <section id="quant-results" class="section">
                 <h2>Quantitative Results</h2>
                 
-                <h3>Consistently strong across diverse multi-view point tracking scenarios.</h3>
+                <h3>Consistently strong across diverse multi-view point tracking scenarios</h3>
                 <p>
                     <!-- Our method consistently boosts MLLM performance on vision-centric tasks by aligning intermediate visual features with a strong vision encoder. Gains persist even with SigLIPv2, showing that regularizing visual representations benefits MLLMs beyond compensating for contrastive pretraining limits. -->
                     We compare our approaches with recent state-of-the art point trackers on DexYCB, Panoptic Studio, Kubric and Harmony4D dataset.
@@ -600,7 +600,7 @@
                                 <td>-</td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td class="model-col">2D</td>
                                 <td class="model-col">Camera</td>
                                 <td class="depth-col"><i class="fa fa-times depth-no" aria-label="depth off"></i></td>
@@ -631,7 +631,7 @@
             <section id="ablation-studies" class="section">
                 <h2>Ablation studies</h2>
 
-                <h3>Ablation on various number of views.</h3>
+                <h3>Ablation on various number of views</h3>
                 <p>
                     We compare MV-TAP with baselines using a varying number of input views. While performance generally improves with more views, the baselines exhibit only marginal gains. In contrast, MV-TAP demonstrates a significantly larger improvement consistently, highlighting its superior ability to leverage multi-view information.
                 </p>
@@ -722,7 +722,7 @@
                                 <td>-</td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>39.2</strong></td>
                                 <td><strong>56.8</strong></td>
                                 <td><u>76.8</u></td>
@@ -801,7 +801,7 @@
                                 <td>8.9</td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>61.9</strong></td>
                                 <td><u>38.4</u></td>
                                 <td><strong>62.8</strong></td>
@@ -814,7 +814,7 @@
                     <p class="image-caption">❗️CAPTION NEEDED❗️</p>
                 </div>
 
-                <h3>Effect of additional training.</h3>
+                <h3>Effect of additional training</h3>
                 <p>
                     Although initialized from the same pretrained model, MV-TAP attains consistently higher performance across all metrics. This shows that its gains primarily come from the architectural design, not merely extended training.
                 </p>
@@ -846,7 +846,7 @@
                                 <td><u>71.8</u></td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>44.2</strong></td>
                                 <td><strong>61.9</strong></td>
                                 <td><strong>78.3</strong></td>
@@ -859,7 +859,7 @@
                     <p class="image-caption">❗️CAPTION NEEDED❗️</p>
                 </div>
 
-                <h3>Comparison on various number of points.</h3>
+                <h3>Comparison on various number of points</h3>
                 <p>
                     We measure tracking performances under varying numbers of query points. Our model consistently outperforms shows better robustness compared to the baselines across both sparse and dense settings.
                 </p>
@@ -950,7 +950,7 @@
                                 <td>-</td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>44.3</strong></td>
                                 <td><strong>62.0</strong></td>
                                 <td><strong>77.5</strong></td>
@@ -969,7 +969,7 @@
                     <p class="image-caption">❗️CAPTION NEEDED❗️</p>
                 </div>
 
-                <h3>Ablation on model architecture.</h3>
+                <h3>Ablation on model architecture</h3>
                 <p>
                     We present an ablation study on our model components for multi-view awareness. The performance consistently improves as each component is added, demonstrating that each module significantly contributes to leveraging multi-view information.
                 </p>
@@ -1019,7 +1019,7 @@
                                 <td><u>73.0</u></td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>44.2</strong></td>
                                 <td><strong>61.9</strong></td>
                                 <td><strong>78.3</strong></td>
@@ -1032,7 +1032,7 @@
                     <p class="image-caption">❗️CAPTION NEEDED❗️</p>
                 </div>
 
-                <h3>Comparison under frequently occluded trajectories.</h3>
+                <h3>Comparison under frequently occluded trajectories</h3>
                 <p>
                     We evaluate methods on trajectories with high occlusion frequency measured by visibility-transition rate. MV-TAP leverages cross-view cues to remain robust on frequently occluded points, improving AJ, $\delta^{x}_{\text{avg}}$ and OA.
                 </p>
@@ -1091,7 +1091,7 @@
                                 <td>-</td>
                             </tr>
                             <tr style="background-color: #f0f0f0;">
-                                <td class="model-col"><strong>Ours</strong></td>
+                                <td class="model-col"><strong>MV-TAP (Ours)</strong></td>
                                 <td><strong>29.7</strong></td>
                                 <td><strong>47.3</strong></td>
                                 <td><strong>70.5</strong></td>
