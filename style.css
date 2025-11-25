@@ -896,17 +896,25 @@ pre {
   text-align: center;
   white-space: normal;
   word-break: keep-all;
-  border-right: 1px solid var(--border-color);
+  /* border-right: 1px solid var(--border-color); */
 }
 
 /* Vertical divider after dataset column */
-.advantages-table .dataset-col {
-  width: 70px; /* adjust narrower width */
+.advantages-table .left-border-col {
+  /* width: 70px;
   max-width: 70px;
   text-align: center;
   white-space: normal;
-  word-break: keep-all;
-  border-right: 1px solid var(--border-color);
+  word-break: keep-all; */
+  border-left: 1px solid var(--border-color);
+}
+.advantages-table .left-bold-border-col {
+  /* width: 70px;
+  max-width: 70px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all; */
+  border-left: 2px solid var(--border-color);
 }
 
 /* Simple depth on/off icon colors */
@@ -914,6 +922,7 @@ pre {
 .advantages-table .depth-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
 
 @media (max-width: 768px) {
+  .advantages-table .method-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
   .advantages-table .model-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
 }
 
