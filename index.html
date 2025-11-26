@@ -150,8 +150,7 @@
                 </div>
             </div>
             <div class="link-labels base-row">
-                <div class="base-col icon-col"><a href="" target="_blank"
-                        class="link-block">
+                <div class="base-col icon-col"><a href="" target="_blank" class="link-block">
                         <i class="fa fas fa-file-text main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Paper</strong>
                     </a></div>
@@ -221,26 +220,18 @@
 
                 <h3>How is this different from existing multi-view tasks?</h3>
                 <p>Most existing multi-view methods are designed for static scenes, assume rigid geometry, or require geometric priors that are unavailable in casual, in-the-wild videos. 
-                    We address the critical gap of tracking points in pixel space through complex dynamic scenes, which is a prerequisite for many real-world applications.
+                    Although a prior approach targets multi-view 3D point tracking in the 3D world coordinate system, it relies on external depth inputs that introduce reprojection errors when reprojecting 3D points to the 2D pixel space.
+                    To address these challenges, we present MV-TAP, a framework that builds a holistic understanding of dynamic multi-view scenes by aggregating information across views and timesteps through camera encoding and cross-view attention.
                 </p>
 
-                <h3>What is the core goal of the model?</h3>
-                <p>Motivated by above, we introduce multi-view point tracking in 2D camera space.
-                    Our goal is to leverage multi-view information to enhance tracking performance while maintaining the strong spatio-temporal consistency established by 2D trackers.
-                </p>
-
-                <div class="image-container">
-                    <div class="image-content">
-                        <img src="images/comparison.png" class="img small-image" alt="Comparisons diagram">
-                    </div>
-                    <!-- <p class="image-caption"> (a) baseline visual instruction tuning, (b) re-injecting visual features from the <i>post</i>-projection layer, (c) re-injecting from the <i>pre</i>-projection layer, and (d) the proposed visual representation alignment. </p>
-                    <p class="image-caption">(e) Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions highlighting middle layers that are especially important for visual understanding. (f) Benchmark performance corresponding to (a–d) </p> -->
-                </div>
-
-                <!-- <div class="two-col">
+                <h3>How does the attention in MV-TAP fundamentally differ from the attention mechanism used in Single-view point tracking and Multi-view matching?</h3>
+                <div class="two-col">
                     <div class="col-left">
-                        <p>Most existing multi-view methods are designed for static scenes, assume rigid geometry, or require geometric priors that are unavailable in casual, in-the-wild videos. 
-                            We address the critical gap of tracking points in pixel space through complex dynamic scenes, which is a prerequisite for many real-world applications.
+                        <p>MV-TAP introduces a novel joint attention mechanism that models both temporal and cross-view interactions simultaneously, unlike existing methods.
+                            This attention module allows the model to exchange information between different viewpoints, thereby overcoming view-dependent ambiguities. <br>
+                            (a) Single-view point tracking primarily uses attention for <span style="color: #FF9999;">temporal consistency</span>, ignoring cross-view cues.
+                            (b) Multi-view matching focuses only on <span style="color: #66cc66;">cross-view consistency</span>, failing to maintain temporal coherence over time.
+                            MV-TAP effectively combines both temporal and cross-view alignment, ensuring the tracked point is consistent across time and space simultaneously.
                         </p>
                     </div>
                     <div class="col-right img">
@@ -249,7 +240,13 @@
                         </div>
                     </div>
                 </div>
-                <p></p> -->
+
+                <p></p>
+
+                <h3>What is the core goal of the model?</h3>
+                <p>Motivated by above, we introduce multi-view point tracking in 2D camera space.
+                    Our goal is to leverage multi-view information to enhance tracking performance while maintaining the strong spatio-temporal consistency established by 2D trackers.
+                </p>
 
                 <!-- <h3>Can we compensate visual information with raw vision encoder feature?</h3>
                 <p>We first tested re-injecting raw vision encoder features into mid-layers via a residual branch, but this degraded performance as the features were not language-aligned and disrupted intermediate representations. 
