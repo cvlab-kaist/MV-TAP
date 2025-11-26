@@ -1088,19 +1088,19 @@ pre {
 }
 
 /* Shrink image inside two-column framework section (Option 1) */
-/* .two-col .col-right img {
-  max-width: 80%;
+.two-col .col-right img {
+  max-width: 95%;
   margin: 0 auto 0.5rem auto;
   display: block;
-} */
+}
 
 /* Adjust column width ratio: give more space to text (left) than image (right) */
 .two-col .col-left {
-  flex: 1 1 0; /* increase text width */
+  flex: 1.15 1 0; /* increase text width */
 }
 
 .two-col .col-right {
-  flex: 1 1 0; /* decrease image column width */
+  flex: 0.85 1 0; /* decrease image column width */
 }
 
 /* Optional: tighten right image container padding a bit */
