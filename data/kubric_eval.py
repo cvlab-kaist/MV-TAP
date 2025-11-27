@@ -1,40 +1,11 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-
 import os
-import torch
-import torch.nn.functional as F
 import cv2
+import glob
+import torch
 import numpy as np
 import mediapy as media
-import imageio.v2 as iio
-import glob
-import random
-import json
-import matplotlib.pyplot as plt
-from einops import repeat
 
-import pathlib
-from tqdm import tqdm
-from torchvision.transforms import ColorJitter, GaussianBlur
-from PIL import Image
-from typing import Tuple, Optional, Any
-# from utils import collate_fn
-
-def read_tiff(filename: str) -> np.ndarray:
-    import imageio
-    img = imageio.v2.imread(pathlib.Path(filename).read_bytes(), format="tiff")
-    if img.ndim == 2:
-        img = img[:, :, None]
-    return img
-
-def read_json(filename: str) -> Any:
-    with open(filename, "r") as fp:
-        return json.load(fp)
-
+from typing import Tuple
 
 def resize_video(video: np.ndarray, output_size: Tuple[int, int]) -> np.ndarray:
     """Resize a video to output_size."""

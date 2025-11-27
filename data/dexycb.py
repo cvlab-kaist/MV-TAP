@@ -1,14 +1,12 @@
-import glob
 import os
-from typing import Tuple
-
+import glob
 import torch
-import imageio.v2 as iio
-import matplotlib.pyplot as plt
-import mediapy as media
 import numpy as np
-from einops import repeat
+import mediapy as media
+import imageio.v2 as iio
 
+from typing import Tuple
+from einops import repeat
 
 def resize_video(video: np.ndarray, output_size: Tuple[int, int]) -> np.ndarray:
     """Resize a video to output_size."""

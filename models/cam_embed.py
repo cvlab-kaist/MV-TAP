@@ -1,9 +1,4 @@
-# construct flucker embbedidng
-# code from uni3c which treats video
-
-
 import einops
-import numpy as np
 import torch
 import torch.nn.functional as F
 

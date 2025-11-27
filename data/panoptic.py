@@ -4,7 +4,6 @@ from typing import Tuple
 
 import torch
 import imageio.v2 as iio
-import matplotlib.pyplot as plt
 import mediapy as media
 import numpy as np
 from einops import repeat

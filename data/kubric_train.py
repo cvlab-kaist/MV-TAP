@@ -1,11 +1,9 @@
-import glob
 import os
-import random
-
 import cv2
-import numpy as np
 import torch
-from PIL import Image, ImageFilter
+import random
+import numpy as np
+from PIL import Image
 from torchvision.transforms import ColorJitter, GaussianBlur
 
 class KubricTrain(torch.utils.data.Dataset):
@@ -149,19 +147,6 @@ class KubricTrain(torch.utils.data.Dataset):
                         )
                         visibles[v, i, occ_inds] = 0
             rgbs[v] = np.clip(rgbs_view, 0, 255).astype(np.uint8, copy=False)
-
-
-        ############ photometric augmentation ############
-        # for v in range(V):
-        #     for t in range(T):
-        #         if np.random.rand() < self.color_aug_prob:
-        #             rgb = rgbs[v,t].clip(0,255).astype(np.uint8)
-        #             rgb = np.asarray(self.photo_aug(Image.fromarray(rgb)))
-        #             rgbs[v,t] = rgb
-        #         if np.random.rand() < self.blur_aug_prob:
-        #             rgb = rgbs[v,t].clip(0,255).astype(np.uint8)
-        #             rgb = np.asarray(self.blur_aug(Image.fromarray(rgb)))
-        #             rgbs[v,t] = rgb
         
         for v in range(V):
             do_grayscale = np.random.rand() < 0.1
