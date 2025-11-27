@@ -1,0 +1,29 @@
+defaults:
+  - _self_
+  - mode: train
+  - model: mvtap
+
+experiment_path: ./experiments/mvtap_experiment
+wandb_name: mvtap_experiment
+wandb_entity: your_wandb_entity
+
+trainer:
+  max_steps: 50000
+  eval_loss_name: track_loss
+
+datasets:
+  resize_H: 384
+  resize_W: 512
+  data_root: /path/to/your/dataset
+  eval:
+    num_points: 300
+    names:
+      - dexycb
+      - panoptic
+      - kubric
+      - harmony
+
+precision: bf16-mixed
+val_check_interval: 1.0
+log_every_n_steps: 1
+ckpt_path: null

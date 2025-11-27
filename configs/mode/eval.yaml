@@ -1,0 +1,19 @@
+# @package _global_
+
+mode: eval
+trainer:
+  loss_name: track_loss
+  optimizer_name: AdamW
+  optimizer_kwargs:
+    lr: 1e-4
+    weight_decay: 1e-4
+    eps: 1e-8
+  scheduler_name: OneCycleLR
+  scheduler_kwargs:
+    pct_start: 0.05
+    cycle_momentum: false
+    anneal_strategy: cos
+    max_lr: 1e-4
+  model_forward_kwargs:
+    iters: 4
+    is_train: false

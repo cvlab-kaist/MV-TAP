@@ -1,0 +1,17 @@
+# @package _global_
+
+model:
+  _target_: models.mvtap.MVTAP
+  window_len: 16
+  stride: 4
+  corr_radius: 3
+  corr_levels: 4
+  num_virtual_tracks: 64
+  hidden_dim: 256
+  latent_dim: 128
+  model_resolution_H: 384
+  model_resolution_W: 512
+  use_checkpoint: false
+  view_att: true
+  use_cam_embed: true
+  bilinear_mode: border
