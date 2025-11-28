@@ -87,6 +87,10 @@
         <div class="container">
             <div class="title-row">
                 <div class="title-flex">
+                    <video class="title-video" autoplay muted loop playsinline>
+                        <source src="images/emoji.webm" type="video/webm">
+                        <source src="videos/emoji.mp4" type="video/mp4">
+                    </video>
                     <div class="title-text-block">
                         <h1 class="title"><span class="gradient-text">MV-TAP</span>: Tracking Any Point in Multi-View Videos</h1>
                         <h1 class="subtitle">arXiv 2025</h1>
@@ -534,6 +538,186 @@
                                     <video class="slideshow-video" src="videos/dexycb-315.mp4" autoplay loop muted playsinline></video></div>
                                     <div class="video-item-container"><h4 class="video-title">view 4</h4>
                                     <video class="slideshow-video" src="videos/dexycb-316.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <h3>Multi-view results on Panoptic Studio dataset</h3>
+                <div class="slideshow-container">
+                    <div class="slideshow">
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-basketball0-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-basketball0-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-basketball0-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-basketball0-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-boxes3-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-boxes3-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-boxes3-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-boxes3-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-juggle2-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-juggle2-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-juggle2-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-juggle2-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-football3-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-football3-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-football3-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/panoptic-football3-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <h3>Multi-view results on Harmony4D dataset</h3>
+                <div class="slideshow-container">
+                    <div class="slideshow">
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma3-0-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma3-0-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma3-0-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma3-0-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_grappling-2-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_grappling-2-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_grappling-2-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_grappling-2-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate3-1-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate3-1-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate3-1-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate3-1-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma4-1-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma4-1-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma4-1-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_mma4-1-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_sword2-1-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_sword2-1-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_sword2-1-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_sword2-1-3.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <div class="video-slide active-slide">
+                                <div class="slide-video-wrapper">
+                                    <div class="video-item-container"><h4 class="video-title">view 1</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate2-0-0.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 2</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate2-0-1.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 3</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate2-0-2.mp4" autoplay loop muted playsinline></video></div>
+                                    <div class="video-item-container"><h4 class="video-title">view 4</h4>
+                                    <video class="slideshow-video" src="videos/harmony4d-001_karate2-0-3.mp4" autoplay loop muted playsinline></video></div>
                                 </div>
                             </div>
                         </div>
