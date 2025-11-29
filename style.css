@@ -680,7 +680,7 @@ pre {
 
 .slideshow {
     position: relative;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
