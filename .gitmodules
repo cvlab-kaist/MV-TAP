@@ -1,0 +1,3 @@
+[submodule "data_generation/MV-Kubric"]
+	path = data_generation/MV-Kubric
+	url = https://github.com/kjae0/MV-Kubric.git

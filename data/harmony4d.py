@@ -15,7 +15,7 @@ def resize_video(video: np.ndarray, output_size: Tuple[int, int]) -> np.ndarray:
     # such as a jitted jax.image.resize.  It will make things faster.
     return media.resize_video(video, output_size)
 
-class Panoptic(torch.utils.data.Dataset):
+class Harmony4D(torch.utils.data.Dataset):
     def __init__(
         self,
         data_root,
@@ -26,17 +26,21 @@ class Panoptic(torch.utils.data.Dataset):
         self.resize_to = resize_to
         self.num_points = num_points
 
-        seq_paths = [
-            os.path.join(data_root, fname)
-            for fname in sorted(os.listdir(data_root))
-            if not fname.startswith("_cache") and not fname.startswith(".") and os.path.isdir(os.path.join(data_root, fname))
-        ]
+        seq_paths = []
+            
+        for categories in os.listdir(data_root):
+            if categories.startswith("_cache") or categories.startswith("."):
+                continue
+            scenes = os.listdir(os.path.join(data_root, categories))
+            seq_paths.extend(
+                [os.path.join(data_root, categories, scene) for scene in sorted(scenes)]
+            )
 
         self.samples = []
         
         for seq_path in seq_paths:
-            view_pattern = 'view_*'
-            key_func = lambda x: int(os.path.basename(x).split('_')[-1])
+            view_pattern = 'cam*'
+            key_func = lambda x: int(os.path.basename(x).replace('cam', ''))
 
             all_view_paths = sorted(glob.glob(os.path.join(seq_path, view_pattern)), key=key_func)
 
@@ -55,11 +59,14 @@ class Panoptic(torch.utils.data.Dataset):
         seq_name = os.path.basename(seq_path)
         all_view_paths = sample["all_view_paths"]
         
-        npz_filename = 'tapvid3d_annotations.npz'
-        tracks_key = 'trajectories_pixelspace'
-        visibility_key = 'per_view_visibilities'
-        image_pattern = '*.jpg'
-            
+        npz_filename = 'annotations.npy'
+        tracks_key = "trajectory"
+        visibility_key = "visibility"
+        image_pattern = "*.jpg"
+        mask_key = "flow_filter_masks"
+        # traj_3d_key = 'trajectory_3d'
+        # depth_pattern = None
+        
         nrgbs = []
 
         for i, view_path in enumerate(all_view_paths):
@@ -74,10 +81,33 @@ class Panoptic(torch.utils.data.Dataset):
 
         V, T, H, W, C = frames.shape
         npz_path = os.path.join(seq_path, npz_filename)
-        data = np.load(npz_path, allow_pickle=True)
+        data = np.load(npz_path, allow_pickle=True).item()
         trajs = data[tracks_key]
         visibles = data[visibility_key]
         
+        if self.num_points is not None:
+            mask = data[mask_key]  # V N
+            
+            threshold = 0
+            n_views = mask.shape[0]
+            
+            for i in range(n_views+1):
+                n_valid_pts = mask.sum(axis=0) > threshold
+                
+                if n_valid_pts.sum() < self.num_points:
+                    threshold = threshold - 1
+                    break
+                else:
+                    threshold = threshold + 1
+            threshold = min(threshold, n_views)
+            valid_pts_indices = mask.sum(axis=0) >= threshold  # N
+            
+            trajs = trajs[:, :, valid_pts_indices, :]
+            visibles = visibles[:, :, valid_pts_indices]
+        else:
+            valid_pts_indices = mask.all(axis=0)  # N
+            trajs = trajs[:, :, valid_pts_indices, :]
+            visibles = visibles[:, :, valid_pts_indices]
         
         _, _, N, _ = trajs.shape
 
@@ -108,8 +138,6 @@ class Panoptic(torch.utils.data.Dataset):
         nan_mask_expanded = nan_mask.unsqueeze(-1)  # (V, N, T, 1)
         trajs = torch.where(nan_mask_expanded, trajs.new_tensor([-50.0, -50.0]), trajs)
 
-
-        
         has_visible = visibles.any(dim=1)  
         first_visible_idx = (visibles.float().cumsum(dim=1) == 1).int()  
         t_idx = (first_visible_idx * torch.arange(T)[None, :, None]).max(dim=1).values
@@ -126,9 +154,6 @@ class Panoptic(torch.utils.data.Dataset):
             coords[..., 1]
         ], dim=-1)
 
-
-
-
         if self.num_points is not None:
             V, T, N, _ = trajs.shape
             n_sample = min(int(self.num_points), int(N))
@@ -136,8 +161,6 @@ class Panoptic(torch.utils.data.Dataset):
             trajs = trajs[:, :, sel_pts, :]
             visibles = visibles[:, :, sel_pts]
             queries = queries[:, sel_pts]
-        
-
 
         return {
             "video": rgbs.float(),
@@ -149,5 +172,3 @@ class Panoptic(torch.utils.data.Dataset):
             "intrinsic": intrinsics,
             "extrinsic": extrinsics,
         }
-
-        
