@@ -45,7 +45,7 @@ We will provide Kubric and Harmony4D evaluation datasts.
 
 #### 1. Download Pre-trained Weights
 
-To evaluate MV-TAP on the benchmarks, first download the pre-trained weights. [Link](https://drive.google.com/file/d/1Q-rqNl1ZkYhH4UtOjwcMH0oKkcCxMi7K/view?usp=sharing)
+To evaluate MV-TAP on the benchmarks, first download the pre-trained weights. [Link](https://drive.google.com/file/d/1ikDIekpNJy1detiGffMiY6iqJXLG1cbE/view?usp=sharing)
 
 #### 2. Run Evaluation
 
