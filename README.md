@@ -34,3 +34,49 @@ conda activate mvtap
 pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
 pip install -U lightning matplotlib mediapy einops wandb hydra-core imageio opencv-python omegaconf
 ```
+
+## Evaluation
+
+#### 0. Evaluation Dataset Preparation
+
+For downloading Panoptic Studio and DexYCB datasets, please refer to official [MVTracker repository](https://github.com/ethz-vlg/mvtracker).
+
+We will provide Kubric and Harmony4D evaluation datasts.
+
+#### 1. Download Pre-trained Weights
+
+To evaluate MV-TAP on the benchmarks, first download the pre-trained weights. [Link](https://drive.google.com/file/d/1Q-rqNl1ZkYhH4UtOjwcMH0oKkcCxMi7K/view?usp=sharing)
+
+#### 2. Run Evaluation
+
+To evaluate the Chrono, use the `experiment.py` script with the following command-line arguments:
+
+```bash
+python experiment.py mode=eval ckpt_path=/path/to/checkpoint
+```
+
+
+Replace `/path/to/checkpoint` with the actual path to your checkpoint file. This command will run the evaluation process and save the results in the specified `save_path`.
+
+## Training
+
+#### Training Dataset Preparation
+
+Kubric train dataset generation pipeline will be provided
+
+
+
+#### Run Training
+
+```bash
+python experiment.py
+```
+
+## 📚 Citing this Work
+Please use the following bibtex to cite our work:
+```
+TBA
+```
+
+## 🙏 Acknowledgement
+This project is largely based on the [CoTracker repository](https://github.com/facebookresearch/co-tracker) and [MVTracker repository](https://github.com/ethz-vlg/mvtracker). Thanks to the authors for their invaluable work and contributions.
