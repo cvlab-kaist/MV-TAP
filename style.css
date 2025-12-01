@@ -1013,7 +1013,7 @@ pre {
 }
 
 .paragraph-image {
-  height: 1.5em;         /* 글자 크기에 맞게 */
+  height: 1.7em;         /* 글자 크기에 맞게 */
   vertical-align: middle; /* 텍스트 세로 맞춤 */
   margin-right: 0.4em;    /* 텍스트랑 간격 */
 }
