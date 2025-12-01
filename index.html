@@ -49,11 +49,12 @@
       body.no-scroll { overflow: hidden; }
 
       .title-video {
-          width: 80px;  
-          height: 80px; 
+          width: 100px;  
+          height: 100px; 
           object-fit: cover; 
           object-position: center;
           border-radius: 50%;
+          border: 2px solid #ccc;
       }
     </style>
 
@@ -96,7 +97,7 @@
             <div class="title-row">
                 <div class="title-flex">
                     <video class="title-video" autoplay muted loop playsinline>
-                        <source src="images/emoji.webm" type="video/webm">
+                        <!-- <source src="images/emoji.webm" type="video/webm"> -->
                         <source src="videos/emoji.mp4" type="video/mp4">
                     </video>
                     <div class="title-text-block">
@@ -159,7 +160,7 @@
                 <div class="base-col author-col affiliations">
                     KAIST AI
                     <br>
-                    <!-- <sup>*</sup>Equal Contribution -->
+                    <sup>*</sup>Equal Contribution
                 </div>
             </div>
             <div class="link-labels base-row">
