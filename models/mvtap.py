@@ -84,7 +84,6 @@ class MVTAP(nn.Module):
             output_dim=4,
             mlp_ratio=4.0,
             num_virtual_tracks=self.num_virtual_tracks,
-            linear_layer_for_vis_conf=True,
             use_checkpoint=self.use_checkpoint,
             view_att=self.view_att,
         )            
@@ -93,7 +92,11 @@ class MVTAP(nn.Module):
             # plucker embedding dim -> refiner input dim
             self.cam_proj = nn.Linear(6, self.former_input_dim)
             self.cam_norm = nn.LayerNorm(self.former_input_dim)    
-     
+            
+        for param in self.fnet.parameters():
+            param.requires_grad = False     
+
+
 
     def get_support_points(self, coords, r, reshape_back=True):
         B, _, N, _ = coords.shape

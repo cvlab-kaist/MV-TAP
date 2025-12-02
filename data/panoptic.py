@@ -35,8 +35,8 @@ class Panoptic(torch.utils.data.Dataset):
         self.samples = []
         
         for seq_path in seq_paths:
-            view_pattern = 'view_*'
-            key_func = lambda x: int(os.path.basename(x).split('_')[-1])
+            view_pattern = 'ims/*'
+            key_func = lambda x: int(os.path.basename(x))
 
             all_view_paths = sorted(glob.glob(os.path.join(seq_path, view_pattern)), key=key_func)
 
@@ -44,7 +44,6 @@ class Panoptic(torch.utils.data.Dataset):
                 "seq_path": seq_path,
                 "all_view_paths": all_view_paths,
             })
-            
 
     def __len__(self):
         return len(self.samples)

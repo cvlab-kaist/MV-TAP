@@ -27,20 +27,14 @@ class KubricEval(torch.utils.data.Dataset):
         self.resize_to = resize_to
 
 
-        self.data_dir = [
-            data
-            for data in sorted(os.listdir(self.data_root))
-        ]
-
         self.seq_names = []
-        for d_dir in self.data_dir:
-            frames_dir = os.path.join(self.data_root, d_dir, 'frames')
-            if os.path.exists(frames_dir):
-                for seq_name in sorted(os.listdir(frames_dir)):
-                    self.seq_names.append({
-                        'seq_name':seq_name,
-                        'data_dir':d_dir
-                        })
+
+        frames_dir = os.path.join(self.data_root, 'frames')
+        if os.path.exists(frames_dir):
+            for seq_name in sorted(os.listdir(frames_dir)):
+                self.seq_names.append({
+                    'seq_name':seq_name,
+                    })
 
 
     def __getitem__(self, index):
@@ -51,17 +45,16 @@ class KubricEval(torch.utils.data.Dataset):
         data = self.seq_names[index]
 
         seq_name = data['seq_name']
-        data_dir = data['data_dir']
 
         view_names = [
             vname
-            for vname in sorted(os.listdir(os.path.join(self.data_root, data_dir, 'frames', seq_name)))
+            for vname in sorted(os.listdir(os.path.join(self.data_root, 'frames', seq_name)))
         ]
         
         
         nrgbs = []
         for i, view in enumerate(view_names):
-            rgb_path = os.path.join(self.data_root, data_dir, 'frames', seq_name, view)
+            rgb_path = os.path.join(self.data_root, 'frames', seq_name, view)
             img_paths = sorted(glob.glob(os.path.join(rgb_path, 'rgba_*.png')))
             rgbs = [cv2.cvtColor(cv2.imread(p, cv2.IMREAD_UNCHANGED), cv2.COLOR_BGR2RGB) for p in img_paths]
             rgbs = np.stack(rgbs, axis=0)
@@ -69,7 +62,7 @@ class KubricEval(torch.utils.data.Dataset):
             nrgbs.append(rgbs)
 
 
-        npy_path = os.path.join(self.data_root, data_dir, 'stacked_tracks', seq_name)
+        npy_path = os.path.join(self.data_root, 'stacked_tracks', seq_name)
         npy_file = os.path.join(npy_path, 'tracks.npy')
         annot = np.load(npy_file, allow_pickle=True).item()
         
@@ -78,6 +71,7 @@ class KubricEval(torch.utils.data.Dataset):
         bkgd_flag = annot['is_bkgd'][0, :, 0]
 
         video = np.stack(nrgbs, axis=0)
+        V, T, H, W, C = video.shape
 
         cam_rot = annot['cam_rot']            
         cam_trans = annot['cam_trans']        

@@ -17,9 +17,9 @@ KAIST AI
 
 ## TODO List
    - [x] Training & Evaluation Codes.
-   - [ ] Model weights.
+   - [x] Model weights.
    - [ ] Kubric generation pipeline for Multi-view point tracking .
-   - [ ] Harmony4D evaluation dataset and code.
+   - [ ] Dataset sampling code.
 
 
 ## Environment

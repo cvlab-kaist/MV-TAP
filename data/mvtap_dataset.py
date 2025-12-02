@@ -2,7 +2,7 @@ from torch.utils.data import DataLoader
 
 from data.dexycb import DexYCB
 from data.panoptic import Panoptic
-# from data.harmony import Harmony
+from data.harmony4d import Harmony4D
 from data.kubric_eval import KubricEval
 from data.kubric_train import KubricTrain
 from data.utils import collate_fn
@@ -55,12 +55,11 @@ def load_eval_dataset(cfg):
                 num_points=cfg.eval.num_points,
             )
         elif name in 'harmony':
-            # dataset = Harmony(
-            #     data_root=cfg.data_root,
-            #     resize_to=[cfg.resize_H, cfg.resize_W],
-            #     num_points=cfg.eval.num_points,
-            # )
-            raise NotImplementedError('Harmony dataset is currently disabled.')
+            dataset = Harmony4D(
+                data_root=cfg.data_root,
+                resize_to=[cfg.resize_H, cfg.resize_W],
+                num_points=cfg.eval.num_points,
+            )
         else:
             raise ValueError(f'Unknown eval dataset name: {name}')
 

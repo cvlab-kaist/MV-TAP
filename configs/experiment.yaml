@@ -14,7 +14,7 @@ trainer:
 datasets:
   resize_H: 384
   resize_W: 512
-  data_root: /path/to/your/dataset
+  data_root: ./datasets
   eval:
     num_points: 300
     names:
