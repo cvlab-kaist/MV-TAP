@@ -19,7 +19,7 @@ KAIST AI
    - [x] Training & Evaluation Codes.
    - [x] Model weights.
    - [ ] Kubric generation pipeline for Multi-view point tracking .
-   - [ ] Dataset sampling code.
+   - [ ] View sampling scripts for evaluation dataset.
 
 
 ## Environment
@@ -41,7 +41,31 @@ pip install -U lightning matplotlib mediapy einops wandb hydra-core imageio open
 
 For downloading Panoptic Studio and DexYCB datasets, please refer to official [MVTracker repository](https://github.com/ethz-vlg/mvtracker).
 
-We will provide Kubric and Harmony4D evaluation datasts.
+For donwloading Harmony4D datasets, download the processed datasets. [Link](https://drive.google.com/file/d/1j5AvMIrI4IaQkK3Xu1zMLFzT-UITiNZ8/view?usp=sharing)
+
+All datasets should be placed inside the `./dataset` directory.
+Each dataset must be stored in its own subfolder. Your project directory should look like:
+
+```bash
+project_root/
+│
+├── datasets/                
+│   ├── DexYCB/            
+│   ├── Panoptic/          
+│   ├── Harmony4D/         
+│   ├── KubricEval/       
+│   └── ...                
+│
+├── configs/
+└── ...
+```
+
+Each datasets contain different number of camera views.
+Therefore, we will provide view-sampling script soon, which automatically select the views for evaluation setting.
+
+The `KubricEval` dataset follows the same structure and generation pipeline as the Train datasets. Follow the multi-view kubric generation pipeline.
+
+
 
 #### 1. Download Pre-trained Weights
 
@@ -75,7 +99,12 @@ python experiment.py
 ## 📚 Citing this Work
 Please use the following bibtex to cite our work:
 ```
-TBA
+@article{koo2025mvtap,
+   title={MV-TAP: Tracking Any Point in Multi-View Videos},
+   author={Koo, Jahyeok and Kim, In{\`e}s Hyeonsu and Kim, Mungyeom and Park, Junghyun and Park, Seohyun and Kim, Jaeyeong and Yi, Jung and Cho, Seokju and Kim, Seungryong},
+   journal={arXiv preprint arXiv:2512.02006},
+   year={2025}
+}
 ```
 
 ## 🙏 Acknowledgement
