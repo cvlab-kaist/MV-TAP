@@ -164,17 +164,13 @@
                 </div>
             </div>
             <div class="link-labels base-row">
-                <div class="base-col icon-col"><a href="https://arxiv.org/pdf/2512.02006" target="_blank" class="link-block">
+                <div class="base-col icon-col"><a href="https://arxiv.org/abs/2512.02006" target="_blank" class="link-block">
                         <i class="fa fas fa-file-text main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Paper</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href="https://github.com/cvlab-kaist/MV-TAP" class="link-block">
                         <i class="fa fa-github main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Code</strong>
-                    </a></div>
-                <div class="base-col icon-col"><a href="" class="link-block">
-                        <i class="fa fa-database main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Data (Coming Soon)</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href="#citation" class="link-block">
                         <i class="fa fa-graduation-cap main-icon" style="font-size: 60px"></i>
@@ -227,21 +223,21 @@
                 <h2>Motivation</h2>
 
                 <p>
-                    <img class="paragraph-image" src="images/MV-TAP-bot_head.png" alt="MV-TAP robot" />
+                    <img class="paragraph-image" src="images/MV-TAP-bot_head-3.png" alt="MV-TAP robot" />
                     <strong>Why should we consider using multi-view information when strong 2D point trackers already exist?</strong> <br>
                     Despite its strong capability, existing point tracking methods have only been explored in single-view videos. 
                     Since the 2D projection of a 3D scene inherently incurs geometric ambiguities, such as frequent occlusion, erratic motion, and depth uncertainty, single-view point tracking methods struggle with these challenges.
                     Consequently, a direct application of these trackers independently to each viewpoint fails to leverage the multi-view cues required to construct reliable point trajectories.
                 </p>
                 <p>
-                    <img class="paragraph-image" src="images/MV-TAP-bot_head.png" alt="MV-TAP robot" />
+                    <img class="paragraph-image" src="images/MV-TAP-bot_head-3.png" alt="MV-TAP robot" />
                     <strong>How is this different from existing multi-view tasks?</strong> <br>
                     Most existing multi-view methods are designed for static scenes, assume rigid geometry, or require geometric priors that are unavailable in casual, in-the-wild videos. 
                     Although a prior approach targets multi-view 3D point tracking in the 3D world coordinate system, it relies on external depth inputs that introduce reprojection errors when reprojecting 3D points to the 2D pixel space.
                     To address these challenges, we present MV-TAP, a framework that builds a holistic understanding of dynamic multi-view scenes by aggregating information across views and timesteps through camera encoding and cross-view attention.
                 </p>
                 <p>
-                    <img class="paragraph-image" src="images/MV-TAP-bot_head.png" alt="MV-TAP robot" />
+                    <img class="paragraph-image" src="images/MV-TAP-bot_head-3.png" alt="MV-TAP robot" />
                     <strong>How does the attention in MV-TAP fundamentally differ from the attention mechanism used in Single-view point tracking and Multi-view matching?</strong> <br>
                     <div class="two-col">
                         <div class="col-left">
@@ -261,7 +257,7 @@
                 </p>
                 <p></p>
                 <p>
-                    <img class="paragraph-image" src="images/MV-TAP-bot_head.png" alt="MV-TAP robot" />
+                    <img class="paragraph-image" src="images/MV-TAP-bot_head-3.png" alt="MV-TAP robot" />
                     <strong>What is the core goal of the model?</strong> <br>
                     Motivated by above, we introduce multi-view point tracking in 2D camera space.
                     Our goal is to leverage multi-view information to enhance tracking performance while maintaining the strong spatio-temporal consistency established by 2D trackers.
