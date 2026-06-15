@@ -1,3 +1,7 @@
+# datasets (raw data, generated view-sampled splits, and the local datasets/ symlink)
+datasets
+*_sampled/
+
 # python env
 __pycache__/
 *.pyc
