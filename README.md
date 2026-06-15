@@ -195,7 +195,7 @@ To evaluate MV-TAP on the benchmarks, first download the pre-trained weights. [L
 
 #### 2. Run Evaluation
 
-To evaluate the Chrono, use the `experiment.py` script with the following command-line arguments:
+To evaluate the MV-TAP, use the `experiment.py` script with the following command-line arguments:
 
 ```bash
 python experiment.py mode=eval ckpt_path=/path/to/checkpoint
